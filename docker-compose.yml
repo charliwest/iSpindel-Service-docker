@@ -1,17 +1,5 @@
 version: '1'
 services:
-  db:
-    image: percona:5.7
-    container_name: ispindle-tcp-server-${ISPINDLE_ID}
-    environment:
-      - MYSQL_DATABASE=${DATABASE}
-      - MYSQL_ROOT_PASSWORD=${ROOT_PASSWORD}
-      - MYSQL_USER=${USER}
-      - MYSQL_PASSWORD=${PASSWORD}
-    volumes:
-      - ./data:/docker-entrypoint-initdb.d
-    ports:
-      - "3306:3306"
   ispindel:
     build: .
     image: ispindle-tcp-server-docker/ispindle-tcp-server-raspbian
