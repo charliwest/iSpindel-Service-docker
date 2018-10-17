@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:stretch
 MAINTAINER charliwest
 
 # expose port 9501 for iSpindel
