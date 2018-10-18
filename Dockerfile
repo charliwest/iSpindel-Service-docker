@@ -24,7 +24,7 @@ RUN pip install --upgrade setuptools wheel
 RUN pip install --upgrade pyserial psutil simplejson configobj gitpython
 
 # clone iSpindel-TCP-Server repositories
-RUN git clone https://github.com/DottoreTozzi/iSpindel-TCP-Server.git /root/ispindel
+RUN git clone https://github.com/DottoreTozzi/iSpindel-TCP-Server.git /root/ispindle
 
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
@@ -34,7 +34,7 @@ RUN chmod +x /entrypoint.sh
 COPY watcher.sh /watcher.sh
 RUN chmod +x /watcher.sh
 
-WORKDIR /root/ispindel/
+WORKDIR /root/ispindle/
 
 # this will always run
 ENTRYPOINT ["/entrypoint.sh"]
