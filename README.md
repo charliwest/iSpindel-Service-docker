@@ -10,12 +10,14 @@ To start you will need to clone this repo onto a pi with docker
 
 ```git clone https://github.com/charliwest/iSpindel-Service-docker
 cd iSpindel-Service-docker
-docker build -t charliwest/ispindel-service .```
+docker build -t charliwest/ispindel-service .
+```
 
 Wait however long it takes, not very long normally its a pretty small image. Then you can create the container. For this you should pass the variables of the location of your storage. 
 
 Example
-```docker create --restart=always --name=ispindle -v /storage/ispindle:/config/ispindle -e PUID=1010 -e PGID=1010 -p 9501:9501 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime charliwest/ispindel-service```
+```docker create --restart=always --name=ispindle -v /storage/ispindle:/config/ispindle -e PUID=1010 -e PGID=1010 -p 9501:9501 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime charliwest/ispindel-service
+```
 
 Now point the iSpindel as you would have previously but to your docker's IP address.
 
