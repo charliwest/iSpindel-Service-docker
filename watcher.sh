@@ -2,8 +2,8 @@
 
 while true
 do
-  if ! python /root/ispindle/iSpindle.py --checkstartuponly --dontrunfile
-    then python -u /root/ispindle/iSpindle.py 1>/root/ispindle/logs/stdout.txt 2>>/root/ispindle/logs/stderr.txt
+  if ! python /config/iSpindle.py --checkstartuponly --dontrunfile
+    then python -u /config/iSpindle.py 1>/var/log/stdout.txt 2>>/var/log/stderr.txt
   fi
   sleep 10
 done
