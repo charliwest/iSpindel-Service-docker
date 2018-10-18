@@ -5,33 +5,25 @@ if [ "$(ls -A /logs)" ]; then
   # if files already exist, remove the defaults.
   # We'll replace them with symlinks to persisted data
   echo "Persistent files already present"
-  rm -rf /home/ispindle/logs
-  rm -rf /var/www/html/data
+  rm -rf /root/ispindle/logs
+
 else
   echo "Setting up new persisted data directory outside of container"
   # if files don't exist, copy them to the persisted location outside the container
-  mv /home/ispindle/logs /data/logs
-  mv /var/www/html/data /data/html_data
+  mv /root/ispindle/logs /data/logs
 fi
-
+V
 # create symlinks to persisted data outside of container
-ln -s -b /data/logs /home/ispindle/logs
-ln -s -b /data/html_data /var/www/html/data
+ln -s -b /data/logs /root/ispindle/logs
 
 # Make sure to always have the log files around
-mkdir -p /home/ispindle/logs
-touch /home/ispindle/logs/stderr.txt
-chmod 755 /home/ispindle/logs/stderr.txt
-touch /home/ispindle/logs/stdout.txt
-chmod 755 /home/ispindle/logs/stderr.txt
-
-# setup default password for port 81 if the password file doesn't exist
-if ! [ -f /data/settings/ispindle.htpasswd ]; then
-  htpasswd -bc /data/settings/ispindle.htpasswd ohyeah ispindle
-fi
-
-service nginx start
-service php7.0-fpm start
+mkdir -p /root/ispindle/logs
+touch /root/ispindle/logs/stderr.txt
+chmod 755 /root/ispindle/logs/stderr.txt
+touch /root/ispindle/logs/stdout.txt
+chmod 755 /root/ispindle/logs/stderr.txt
+mkdir -p /root/ispindle/csv
+chmod 755 /root/ispindle/csv
 
 # run command if passed to the container, instead of running watcher.sh
 exec "$@"
