@@ -1,4 +1,4 @@
-FROM resin/raspberrypi3-python:2.7
+FROM lsiobase/alpine.python.armhf:3.8
 MAINTAINER charliwest
 
 # expose port 9501 for iSpindel
