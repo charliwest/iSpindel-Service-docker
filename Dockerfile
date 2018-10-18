@@ -5,14 +5,14 @@ MAINTAINER charliwest
 EXPOSE 9501
 
 # install apt dependencies
-#RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
 #  build-essential \
 #  python-dev \
 #  python-pip \
-#  git \
-#  vim \
-#  dfu-util \
-#  sudo
+  git \
+  vim \
+  dfu-util \
+  sudo
 
 # upgrade pip
 RUN pip install --upgrade pip
