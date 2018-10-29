@@ -2,19 +2,11 @@ This is a docker version of the https://github.com/DottoreTozzi/iSpindel-TCP-Ser
 
 This container will start the python script and then do whatever you tell the script to do. In the future I will work on making other containers to work with this for db and the webui from the original project (although I suspect that will be tweaks to other containers anyway). If you want to write to csv or forward onto other services I believe this will just work as it is now. But I have only been anle to test the csv part as I don't use the others.
 
-The locations have a changed a little (iSpindel or iSpeindle...) but you should be able to work with it as is.
+The locations have a changed a little (iSpindel or iSpindle...) but you should be able to work with it as is.
 
 You will need to create a folder with the iSpindle.py file in with the settings you want. The basic with writing to csv can be found here https://github.com/charliwest/iSpindel-TCP-Server/blob/master/iSpindle.py (turns off mysql and places the csv in the correct location for docker).
 
-To start you will need to clone this repo onto a pi with docker
-
-```s
-git clone https://github.com/charliwest/iSpindel-Service-docker
-cd iSpindel-Service-docker
-docker build -t charliwest/ispindel-service .
-```
-
-Wait however long it takes, not very long normally its a pretty small image. Then you can create the container. For this you should pass the variables of the location of your storage. 
+Then you can create the container. For this you should pass the variables of the location of your storage. 
 
 Example
 ```
